@@ -1,4 +1,4 @@
-package com.maulin.notes.data;
+package com.maulin.notes.data.provider;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
