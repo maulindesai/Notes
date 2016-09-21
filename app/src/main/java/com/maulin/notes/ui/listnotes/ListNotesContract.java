@@ -10,5 +10,6 @@ import java.util.ArrayList;
 public class ListNotesContract {
     public  interface ListNotesView {
         void displayNotes(ArrayList<Note> notes);
+        void noNotesAvaliable();
     }
 }

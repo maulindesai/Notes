@@ -2,6 +2,7 @@ package com.maulin.notes.ui.listnotes;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.maulin.notes.models.Note;
 import com.maulin.notes.ui.R;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class ListNotes extends AppCompatActivity implements ListNotesView{
 
     private RecyclerView rlNoteList;
-    private ArrayList<Note> mNotes;
+    private ArrayList<Note> mNotes=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,14 @@ public class ListNotes extends AppCompatActivity implements ListNotesView{
 
     @Override
     public void displayNotes(ArrayList<Note> notes) {
+        mNotes=notes;
+        rlNoteList.getAdapter().notifyDataSetChanged();
+    }
 
+    @Override
+    public void noNotesAvaliable() {
+        TextView textView=new TextView(this);
+        textView.setText("No Item Avaliable");
+        rlNoteList.addView(textView);
     }
 }
