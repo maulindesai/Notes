@@ -19,4 +19,9 @@ public class NoteRemoteDataSource implements NoteDataSource {
     public void getNote(long id, GetNoteCallBack callBack) {
 
     }
+
+    @Override
+    public void addNote(Note note) {
+
+    }
 }

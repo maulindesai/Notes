@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public interface NoteDataSource {
     void getNotes(GetNotesCallBack callBacks);
     void getNote(long id,GetNoteCallBack callBack);
+    void addNote(Note note);
 
     interface GetNotesCallBack {
         void onNotesLoaded(ArrayList<Note> notes);

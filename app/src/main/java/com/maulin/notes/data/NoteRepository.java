@@ -44,4 +44,9 @@ public class NoteRepository implements NoteDataSource {
     public void getNote(long id, GetNoteCallBack callBack) {
         // no needed loaded by loader
     }
+
+    @Override
+    public void addNote(Note note) {
+        mNoteLocaDataSource.addNote(note);
+    }
 }

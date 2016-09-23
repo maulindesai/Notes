@@ -48,4 +48,12 @@ public class NotesProvider {
     public static Uri withId(long id) {
         return buildUri(Path.NOTE_LISTS,String.valueOf(id));
     }
+
+    @TableEndpoint(table = NoteDatabase.NOTE_LISTS) public static class NoteAdd {
+        @ContentUri(
+                path = Path.NOTE,
+                type = "com.maulin.notes/note"
+        )
+        public static final Uri NOTE=buildUri(Path.NOTE);
+    }
 }

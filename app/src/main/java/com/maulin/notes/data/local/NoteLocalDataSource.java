@@ -1,6 +1,7 @@
 package com.maulin.notes.data.local;
 
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
@@ -11,6 +12,8 @@ import com.maulin.notes.data.provider.generated.NotesProvider;
 import com.maulin.notes.models.Note;
 
 import java.util.ArrayList;
+
+import static com.maulin.notes.data.provider.NotesProvider.*;
 
 /**
  * Created by mcd on 21/9/16.
@@ -56,5 +59,13 @@ public class NoteLocalDataSource implements NoteDataSource {
     @Override
     public void getNote(long id, GetNoteCallBack callBack) {
 
+    }
+
+    @Override
+    public void addNote(Note note) {
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(NoteListCollumns.note,note.getId());
+        contentValues.put(NoteListCollumns.TITLE,note.getTitle());
+        mContentResolver.insert(NoteAdd.NOTE,contentValues);
     }
 }
